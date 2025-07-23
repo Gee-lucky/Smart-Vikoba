@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Members - Smart Vikoba</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex min-h-screen">
+<aside class="w-64 bg-white shadow-md">
+  <div class="px-6 py-4 text-2xl font-['Pacifico'] text-blue-600">Smart Vikoba</div>
+  <nav class="space-y-1">
+    <a href="dashboard.html" class="block px-6 py-2 hover:bg-blue-50">Dashboard</a>
+    <a href="members.html" class="block px-6 py-2 bg-blue-100 font-semibold">Members</a>
+    <a href="contributions.html" class="block px-6 py-2 hover:bg-blue-50">Contributions</a>
+    <a href="loans.html" class="block px-6 py-2 hover:bg-blue-50">Loans</a>
+    <a href="savings.html" class="block px-6 py-2 hover:bg-blue-50">Savings</a>
+    <!-- <a href="reports.html" class="block px-6 py-2 hover:bg-blue-50">Reports</a> -->
+    <button id="logoutBtn" class="block px-6 py-2 hover:bg-red-50">Logout</button>
+  </nav>
+</aside>
+
+<main class="flex-1 p-6 space-y-6">
+  <div class="flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-gray-700">Members</h1>
+  </div>
+
+  <!-- Add Member Form -->
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-semibold text-gray-600 mb-2">Add New Member</h2>
+    <form id="memberForm" class="flex flex-wrap gap-4">
+    <input name="full_name" placeholder="Full Name" required
+      class="flex-1 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
+    <input name="email" placeholder="Email" type="email"
+      class="flex-1 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
+    <input name="phone" placeholder="Phone"
+      class="flex-1 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
+    <select name="role"
+      class="flex-1 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
+      <option value="Member" selected>Member</option>
+      <option value="Chairman">Chairman</option>
+      <option value="Treasurer">Treasurer</option>
+      <option value="Secretary">Secretary</option>
+    </select>
+    <button
+      class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Add Member</button>
+</form>
+
+  </div>
+
+  <!-- Members Table -->
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-semibold text-gray-600 mb-2">Current Members</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left">
+        <thead class="bg-blue-50">
+          <tr>
+            <th class="px-4 py-2 border-b">#</th>
+            <th class="px-4 py-2 border-b">Name</th>
+            <th class="px-4 py-2 border-b">Role</th>
+            <th class="px-4 py-2 border-b">Email</th>
+            <th class="px-4 py-2 border-b">Phone</th>
+            <th class="px-4 py-2 border-b" >Actions</th>
+          </tr>
+        </thead>
+        <tbody id="membersTable" class="divide-y divide-gray-200">
+          <!-- dynamic content -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<script>
+const form = document.getElementById('memberForm');
+const tableBody = document.getElementById('membersTable');
+
+form.onsubmit = async (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(form).entries());
+  form.querySelector('button').disabled = true;
+
+  await fetch('/api/members', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  });
+
+  form.reset();
+  form.querySelector('button').disabled = false;
+  loadMembers();
+};
+
+async function loadMembers() {
+  const res = await fetch('/api/members');
+  const members = await res.json();
+
+  tableBody.innerHTML = '';
+  members.forEach((m, i) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td class="px-4 py-2">${i+1}</td>
+      <td class="px-4 py-2">${m.full_name}</td>
+      <td class="px-4 py-2 border-b">${m.role || 'Member'}</td>
+      <td class="px-4 py-2">${m.email || '-'}</td>
+      <td class="px-4 py-2">${m.phone || '-'}</td>
+      <td class="px-4 py-2">
+        <button onclick="deleteMember(${m.id})" 
+          class="text-red-600 hover:underline">Delete</button>
+      </td>`;
+    tableBody.appendChild(row);
+  });
+}
+
+async function deleteMember(id) {
+  if (!confirm('Are you sure you want to delete this member?')) return;
+  await fetch(`/api/members/${id}`, {method: 'DELETE'});
+  loadMembers();
+}
+
+document.getElementById('logoutBtn').onclick = () => {
+  localStorage.clear();
+  window.location.href = 'sign.html';
+};
+
+loadMembers();
+</script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Vikoba- Digital Group Savings Platform</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <h1 class="text-2xl font-['Pacifico'] text-primary">Smart Vikoba</h1>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Features</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">How it Works</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Pricing</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Support</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="sign.html" class="text-gray-700 hover:text-primary transition-colors whitespace-nowrap !rounded-button">Sign In</a>
+                    <a href="sign-up.html" class="bg-primary text-white px-6 py-2 hover:bg-blue-600 transition-colors whitespace-nowrap !rounded-button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative min-h-screen flex items-center overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20African%20community%20members%20collaborating%20with%20smartphones%20and%20digital%20technology%20in%20a%20bright%20clean%20office%20environment%20with%20natural%20lighting%2C%20professional%20business%20setting%20with%20people%20working%20together%20on%20financial%20planning%2C%20contemporary%20workspace%20with%20glass%20windows%20and%20plants%2C%20soft%20blue%20and%20green%20color%20palette%2C%20minimalist%20design%20aesthetic%2C%20left%20side%20has%20subtle%20gradient%20overlay%20transitioning%20to%20solid%20white%20background%20for%20text%20readability&width=1920&height=1080&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent"></div>
+            <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="w-full flex items-center min-h-screen py-20">
+                    <div class="w-full lg:w-1/2 space-y-8">
+                        <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                            Build Wealth Together with
+                            <span class="text-primary">Digital Vikoba</span>
+                        </h1>
+                        <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
+                            Join thousands of Africans who are transforming their financial future through digital group savings, loans, and collective investment opportunities.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-primary text-white px-8 py-4 text-lg font-semibold hover:bg-blue-600 transition-colors whitespace-nowrap !rounded-button">
+                                Start Your Group Today
+                            </button>
+                            <button class="border-2 border-gray-300 text-gray-700 px-8 py-4 text-lg font-semibold hover:border-primary hover:text-primary transition-colors whitespace-nowrap !rounded-button">
+                                Watch Demo
+                            </button>
+                        </div>
+                        <div class="flex items-center space-x-8 pt-8">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gray-900">50K+</div>
+                                <div class="text-sm text-gray-600">Active Users</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gray-900">$2M+</div>
+                                <div class="text-sm text-gray-600">Saved Together</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-gray-900">1,200+</div>
+                                <div class="text-sm text-gray-600">Active Groups</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Trusted by Leading Mobile Money Providers</h2>
+                    <p class="text-xl text-gray-600">Seamlessly integrated with Africa's top payment platforms</p>
+                </div>
+                <div class="flex justify-center items-center space-x-12 opacity-60">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-smartphone-fill text-2xl text-green-600"></i>
+                        </div>
+                        <span class="text-xl font-semibold text-gray-700">M-Pesa</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-phone-fill text-2xl text-blue-600"></i>
+                        </div>
+                        <span class="text-xl font-semibold text-gray-700">TigoPesa</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-wallet-fill text-2xl text-red-600"></i>
+                        </div>
+                        <span class="text-xl font-semibold text-gray-700">AirtelMoney</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Everything You Need for Group Savings</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">From creating your first vikoba to managing complex SACCO operations, we've got you covered with powerful tools and seamless integrations.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 shadow-sm hover:shadow-md transition-shadow !rounded-button">
+                        <div class="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 !rounded-button">
+                            <i class="ri-group-line text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Digital Group Formation</h3>
+                        <p class="text-gray-600 leading-relaxed">Create and manage vikoba or SACCO groups with customizable rules, member invitations, and governance structures.</p>
+                    </div>
+                    <div class="bg-white p-8 shadow-sm hover:shadow-md transition-shadow !rounded-button">
+                        <div class="w-12 h-12 bg-secondary/10 flex items-center justify-center mb-6 !rounded-button">
+                            <i class="ri-wallet-line text-2xl text-secondary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Collective Savings</h3>
+                        <p class="text-gray-600 leading-relaxed">Track individual and group contributions with automated calculations, interest accrual, and transparent reporting.</p>
+                    </div>
+                    <div class="bg-white p-8 shadow-sm hover:shadow-md transition-shadow !rounded-button">
+                        <div class="w-12 h-12 bg-yellow-500/10 flex items-center justify-center mb-6 !rounded-button">
+                            <i class="ri-hand-coin-line text-2xl text-yellow-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Loan Management</h3>
+                        <p class="text-gray-600 leading-relaxed">Request loans, vote on applications, set repayment schedules, and track loan performance with built-in calculators.</p>
+                    </div>
+                    <div class="bg-white p-8 shadow-sm hover:shadow-md transition-shadow !rounded-button">
+                        <div class="w-12 h-12 bg-purple-500/10 flex items-center justify-center mb-6 !rounded-button">
+                            <i class="ri-smartphone-line text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Mobile Money Integration</h3>
+                        <p class="text-gray-600 leading-relaxed">Seamlessly deposit and withdraw funds through M-Pesa, TigoPesa, and AirtelMoney with real-time transaction tracking.</p>
+                    </div>
+                    <div class="bg-white p-8 shadow-sm hover:shadow-md transition-shadow !rounded-button">
+                        <div class="w-12 h-12 bg-red-500/10 flex items-center justify-center mb-6 !rounded-button">
+                            <i class="ri-bar-chart-line text-2xl text-red-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Automated Reports</h3>
+                        <p class="text-gray-600 leading-relaxed">Generate detailed financial reports, member statements, and group analytics with downloadable PDFs and Excel exports.</p>
+                    </div>
+                    <div class="bg-white p-8 shadow-sm hover:shadow-md transition-shadow !rounded-button">
+                        <div class="w-12 h-12 bg-indigo-500/10 flex items-center justify-center mb-6 !rounded-button">
+                            <i class="ri-notification-line text-2xl text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Smart Reminders</h3>
+                        <p class="text-gray-600 leading-relaxed">Never miss a payment or meeting with intelligent notifications, SMS alerts, and customizable reminder schedules.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold text-gray-900 mb-6">See How VikobaApp Works</h2>
+                        <p class="text-xl text-gray-600 mb-8">Experience the complete journey from group creation to successful savings and loan management.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-primary text-white flex items-center justify-center text-sm font-bold rounded-full flex-shrink-0">1</div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 mb-2">Create or Join a Group</h3>
+                                    <p class="text-gray-600">Start your own vikoba or join existing groups in your community with verified members.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-primary text-white flex items-center justify-center text-sm font-bold rounded-full flex-shrink-0">2</div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 mb-2">Set Contribution Rules</h3>
+                                    <p class="text-gray-600">Define monthly contributions, meeting schedules, and loan policies that work for everyone.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-primary text-white flex items-center justify-center text-sm font-bold rounded-full flex-shrink-0">3</div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 mb-2">Save & Grow Together</h3>
+                                    <p class="text-gray-600">Make regular contributions, track progress, and watch your collective wealth grow over time.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-primary text-white flex items-center justify-center text-sm font-bold rounded-full flex-shrink-0">4</div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 mb-2">Access Loans When Needed</h3>
+                                    <p class="text-gray-600">Request loans from group funds with transparent approval process and flexible repayment terms.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Modern%20smartphone%20displaying%20a%20clean%20financial%20mobile%20app%20interface%20with%20group%20savings%20dashboard%2C%20African%20users%20interacting%20with%20digital%20banking%20features%2C%20bright%20professional%20photography%20with%20soft%20lighting%2C%20contemporary%20mobile%20UI%20design%20showing%20savings%20progress%20and%20group%20member%20list%2C%20minimalist%20app%20design%20with%20blue%20and%20green%20accent%20colors%2C%20high-quality%20product%20photography&width=600&height=800&seq=app1&orientation=portrait" alt="VikobaApp Mobile Interface" class="w-full h-auto object-top shadow-2xl !rounded-button">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Trusted by Communities Across Africa</h2>
+                    <p class="text-xl text-gray-600">Real stories from real users who've transformed their financial lives</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 shadow-sm !rounded-button">
+                        <div class="flex items-center mb-6">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20African%20woman%20entrepreneur%20smiling%20confidently%20in%20modern%20office%20setting%2C%20business%20portrait%20with%20natural%20lighting%2C%20contemporary%20professional%20headshot%2C%20warm%20and%20approachable%20expression%2C%20clean%20background&width=80&height=80&seq=user1&orientation=squarish" alt="Sarah Mwangi" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Sarah Mwangi</h4>
+                                <p class="text-sm text-gray-600">Group Leader, Nairobi</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">"VikobaApp helped our women's group save $15,000 in just 8 months. The mobile money integration made everything so much easier for our members."</p>
+                    </div>
+                    <div class="bg-white p-8 shadow-sm !rounded-button">
+                        <div class="flex items-center mb-6">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20African%20man%20in%20business%20attire%20smiling%20warmly%2C%20confident%20entrepreneur%20portrait%20in%20modern%20office%20environment%2C%20natural%20professional%20headshot%20with%20soft%20lighting%2C%20approachable%20business%20leader&width=80&height=80&seq=user2&orientation=squarish" alt="James Ochieng" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">James Ochieng</h4>
+                                <p class="text-sm text-gray-600">SACCO Treasurer, Kisumu</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">"Managing our 50-member SACCO became effortless with automated reports and loan tracking. We've increased our loan approval rate by 40%."</p>
+                    </div>
+                    <div class="bg-white p-8 shadow-sm !rounded-button">
+                        <div class="flex items-center mb-6">
+                            <img src="https://readdy.ai/api/search-image?query=Young%20African%20professional%20woman%20with%20bright%20smile%20in%20contemporary%20workspace%2C%20confident%20business%20portrait%20with%20natural%20lighting%2C%20modern%20office%20background%2C%20warm%20and%20friendly%20expression&width=80&height=80&seq=user3&orientation=squarish" alt="Grace Nyong" class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Grace Nyong</h4>
+                                <p class="text-sm text-gray-600">Small Business Owner, Kampala</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">"I got my first business loan through my vikoba group on VikobaApp. The transparent process and fair interest rates helped me expand my tailoring business."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-primary">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold text-white mb-6">Ready to Transform Your Financial Future?</h2>
+                <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Join thousands of Africans who are building wealth together through digital group savings and loans.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-primary px-8 py-4 text-lg font-semibold hover:bg-gray-50 transition-colors whitespace-nowrap !rounded-button">
+                        Start Your Free Group
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-primary transition-colors whitespace-nowrap !rounded-button">
+                        Schedule a Demo
+                    </button>
+                </div>
+                <p class="text-blue-100 mt-6">No setup fees • Free for first 3 months • Cancel anytime</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-['Pacifico'] text-primary mb-4">VikobaApp</h3>
+                    <p class="text-gray-400 leading-relaxed">Empowering African communities through digital group savings and financial inclusion.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-facebook-fill text-xl text-gray-400 hover:text-white cursor-pointer"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-twitter-fill text-xl text-gray-400 hover:text-white cursor-pointer"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-linkedin-fill text-xl text-gray-400 hover:text-white cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mobile App</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Training</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2025 VikobaApp. All rights reserved.</p>
+                <div class="flex items-center space-x-6 mt-4 md:mt-0">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-smartphone-fill text-green-500"></i>
+                        </div>
+                        <span class="text-gray-400 text-sm">M-Pesa</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-phone-fill text-blue-500"></i>
+                        </div>
+                        <span class="text-gray-400 text-sm">TigoPesa</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-wallet-fill text-red-500"></i>
+                        </div>
+                        <span class="text-gray-400 text-sm">AirtelMoney</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

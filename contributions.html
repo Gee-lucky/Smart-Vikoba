@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contributions - Smart Vikoba</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex min-h-screen">
+<aside class="w-64 bg-white shadow-md">
+  <div class="px-6 py-4 text-2xl font-['Pacifico'] text-blue-600">Smart Vikoba</div>
+  <nav class="space-y-1">
+    <a href="dashboard.html" class="block px-6 py-2 hover:bg-blue-50">Dashboard</a>
+    <a href="members.html" class="block px-6 py-2 hover:bg-blue-50">Members</a>
+    <a href="contributions.html" class="block px-6 py-2 bg-blue-100 font-semibold">Contributions</a>
+    <a href="loans.html" class="block px-6 py-2 hover:bg-blue-50">Loans</a>
+    <a href="savings.html" class="block px-6 py-2 hover:bg-blue-50">Savings</a>
+    <!-- <a href="reports.html" class="block px-6 py-2 hover:bg-blue-50">Reports</a> -->
+    <button id="logoutBtn" class="block px-6 py-2 hover:bg-red-50">Logout</button>
+
+  </nav>
+</aside>
+
+<main class="flex-1 p-6 space-y-6">
+  <h1 class="text-2xl font-bold text-gray-700">Contributions</h1>
+
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-semibold text-gray-600 mb-2">Add Contribution</h2>
+    <form id="form" class="flex flex-wrap gap-4">
+      <input name="member_id" placeholder="Member ID" required
+        class="px-3 py-2 border rounded flex-1">
+      <input name="amount" placeholder="Amount" required
+        class="px-3 py-2 border rounded flex-1">
+      <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add</button>
+    </form>
+  </div>
+
+  <div class="bg-white shadow rounded p-4">
+    <h2 class="text-lg font-semibold text-gray-600 mb-2">All Contributions</h2>
+    <table class="min-w-full text-sm">
+      <thead class="bg-blue-50">
+        <tr><th class="px-4 py-2 border-b">#</th>
+            <th class="px-4 py-2 border-b">Member</th>
+            <th class="px-4 py-2 border-b">Amount</th>
+            <th class="px-4 py-2 border-b">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="table" class="divide-y divide-gray-200">
+        <!-- dynamic content -->
+      </tbody>
+    </table>
+  </div>
+
+<script>
+const form = document.getElementById('form');
+const table = document.getElementById('table');
+
+form.onsubmit = async e => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(form).entries());
+  form.querySelector('button').disabled = true;
+  await fetch('/api/contributions', {
+    method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)
+  });
+  form.reset();form.querySelector('button').disabled = false;
+  load();
+}
+
+async function load() {
+  const res = await fetch('/api/contributions');
+  const items = await res.json();
+  table.innerHTML = '';
+  items.forEach((c,i) => {
+    table.innerHTML += `<tr>
+      <td class="px-4 py-2">${i+1}</td>
+      <td class="px-4 py-2">${c.full_name}</td>
+      <td class="px-4 py-2">${c.amount}</td>
+      <td class="px-4 py-2">
+        <button onclick="del(${c.id})" class="text-red-600 hover:underline">Delete</button>
+        </td>
+    </tr>`;
+  });
+}
+ 
+async function del(id) {
+  if (!confirm('Delete this contribution?')) return;
+  await fetch(`/api/contributions/${id}`,{method:'DELETE'});
+  load();
+}
+
+document.getElementById('logoutBtn').onclick = () => {
+  localStorage.clear();
+  window.location.href = 'sign.html';
+};
+
+load();
+</script>
+</main>
+</body>
+</html>

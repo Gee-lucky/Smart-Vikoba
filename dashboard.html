@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard - Smart Vikoba</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex min-h-screen">
+<aside class="w-64 bg-white shadow-md">
+  <div class="px-6 py-4 text-2xl font-['Pacifico'] text-blue-600">Smart Vikoba</div>
+  <nav class="space-y-1">
+    <a href="dashboard.html" class="block px-6 py-2 bg-blue-100 font-semibold">Dashboard</a>
+    <a href="members.html" class="block px-6 py-2 hover:bg-blue-50">Members</a>
+    <a href="contributions.html" class="block px-6 py-2 hover:bg-blue-50">Contributions</a>
+    <a href="loans.html" class="block px-6 py-2 hover:bg-blue-50">Loans</a>
+    <a href="savings.html" class="block px-6 py-2 hover:bg-blue-50">Savings</a>
+    <!-- <a href="reports.html" class="block px-6 py-2 hover:bg-blue-50">Reports</a> -->
+    <button id="logoutBtn" class="block px-6 py-2 hover:bg-red-50">Logout</button>
+  </nav>
+</aside>
+
+<main class="flex-1 p-6 space-y-6">
+  <h1 class="text-2xl font-bold text-gray-700">Dashboard</h1>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="bg-white shadow rounded p-4">
+      <h2 class="text-gray-500">Total Members</h2>
+      <p id="membersCount" class="text-2xl font-bold text-blue-600">0</p>
+    </div>
+    <div class="bg-white shadow rounded p-4">
+      <h2 class="text-gray-500">Total Contributions</h2>
+      <p id="contributionsTotal" class="text-2xl font-bold text-blue-600">0</p>
+    </div>
+    <div class="bg-white shadow rounded p-4">
+      <h2 class="text-gray-500">Total Loans</h2>
+      <p id="loansTotal" class="text-2xl font-bold text-blue-600">0</p>
+    </div>
+    <div class="bg-white shadow rounded p-4">
+      <h2 class="text-gray-500">Total Savings</h2>
+      <p id="savingsTotal" class="text-2xl font-bold text-blue-600">0</p>
+    </div>
+  </div>
+
+<script>
+async function loadDashboard() {
+  const [members, contributions, loans, savings] = await Promise.all([
+    fetch('/api/members').then(res=>res.json()),
+    fetch('/api/contributions').then(res=>res.json()),
+    fetch('/api/loans').then(res=>res.json()),
+    fetch('/api/savings').then(res=>res.json()),
+  ]);
+
+  document.getElementById('membersCount').textContent = members.length;
+  document.getElementById('contributionsTotal').textContent =
+    contributions.reduce((sum,c)=>sum+Number(c.amount),0);
+  document.getElementById('loansTotal').textContent =
+    loans.reduce((sum,c)=>sum+Number(c.amount),0);
+  document.getElementById('savingsTotal').textContent =
+    savings.reduce((sum,c)=>sum+Number(c.amount),0);
+}
+
+document.getElementById('logoutBtn').onclick = () => {
+  localStorage.clear();
+  window.location.href = 'sign.html';
+};
+
+loadDashboard();
+</script>
+</main>
+</body>
+</html>
