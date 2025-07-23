@@ -5,7 +5,7 @@ const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 
 const app = express();
-const PORT = 5500;
+const PORT = 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
